@@ -34,19 +34,23 @@ export function NewsletterSection() {
   return (
     <section
       aria-labelledby="newsletter-heading"
-      className="border-t border-border-subtle bg-blush/35 py-16 sm:py-20"
+      className="bg-[linear-gradient(135deg,#fde8e3_0%,#f9cfc9_52%,#f2b3b0_100%)] py-16 sm:py-20"
     >
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-warm-brown">
-          The Aurevellea Letter
+        <p className="inline-block rounded-full border border-white/70 bg-white/60 px-3.5 py-1 text-[11px] font-medium text-mocha backdrop-blur-sm">
+          The {siteConfig.brandName} Letter
         </p>
         <h2
           id="newsletter-heading"
-          className="mt-3 font-serif text-3xl font-normal text-dark-ink sm:text-4xl"
+          className="mt-4 font-sans text-3xl font-semibold tracking-tight text-cocoa sm:text-4xl"
         >
-          Seasonal Style Notes &amp; Editorial Dispatches
+          Seasonal Style Notes &amp;{" "}
+          <span className="font-serif font-medium italic text-mocha">
+            Editorial
+          </span>{" "}
+          Dispatches
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-dark-ink/75 sm:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-cocoa/75 sm:text-base">
           Curated outfit inspiration, minimal manicure edits, and thoughtful
           beauty guides—sent at a calm, unhurried pace.
         </p>
@@ -66,38 +70,38 @@ export function NewsletterSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="flex-1 border border-border-subtle bg-white px-4 py-3 text-sm text-dark-ink placeholder:text-dark-ink/45 focus:border-warm-brown focus:outline-none"
+              className="flex-1 rounded-lg border border-white/70 bg-white/70 px-4 py-3 text-sm text-cocoa backdrop-blur-sm placeholder:text-cocoa/45 focus:border-cocoa focus:outline-none"
             />
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="border border-dark-ink bg-dark-ink px-6 py-3 text-xs font-medium uppercase tracking-[0.18em] text-ivory transition-colors hover:border-warm-brown hover:bg-warm-brown disabled:opacity-60"
+              className="rounded-lg bg-gradient-to-b from-[#6a3222] to-cocoa px-6 py-3 text-sm font-medium text-white shadow-[0_10px_24px_-10px_rgba(75,34,24,0.7)] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
             >
               {status === "submitting" ? "Joining..." : "Subscribe"}
             </button>
           </form>
         ) : (
-          <div className="mx-auto mt-8 max-w-xl border border-blush bg-white px-6 py-5 text-left">
+          <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-white/70 bg-white/60 px-6 py-5 text-left backdrop-blur-sm">
             <div className="flex items-start gap-3">
               <Mail
-                className="mt-0.5 h-4 w-4 shrink-0 text-rose"
+                className="mt-0.5 h-4 w-4 shrink-0 text-mocha"
                 aria-hidden="true"
               />
-              <div className="text-sm leading-relaxed text-dark-ink/80">
-                <p className="font-medium text-dark-ink">
+              <div className="text-sm leading-relaxed text-cocoa/85">
+                <p className="font-medium text-cocoa">
                   Newsletter signups are not yet connected to an email provider.
                 </p>
-                <p className="mt-1 text-xs text-dark-ink/65">
+                <p className="mt-1 text-xs text-cocoa/70">
                   To keep reader trust intact, no form submissions are collected
                   until an email service (such as Buttondown, Kit, or Resend) is
                   configured via{" "}
-                  <code className="bg-ivory px-1.5 py-0.5 text-[11px]">
+                  <code className="rounded bg-white/70 px-1.5 py-0.5 text-[11px]">
                     NEXT_PUBLIC_NEWSLETTER_ENDPOINT
                   </code>
                   . In the meantime, explore the{" "}
                   <Link
                     href="/blog"
-                    className="font-medium text-warm-brown underline decoration-rose/70 underline-offset-4"
+                    className="font-medium text-mocha underline decoration-cocoa/40 underline-offset-4"
                   >
                     latest articles
                   </Link>
@@ -109,12 +113,12 @@ export function NewsletterSection() {
         )}
 
         {status === "success" ? (
-          <p className="mt-4 text-sm font-medium text-warm-brown">
-            Thank you for subscribing to Aurevellea.
+          <p className="mt-4 text-sm font-medium text-cocoa">
+            Thank you for subscribing to {siteConfig.brandName}.
           </p>
         ) : null}
         {status === "error" ? (
-          <p className="mt-4 text-sm text-warm-brown">
+          <p className="mt-4 text-sm text-cocoa">
             We could not process your request right now. Please try again later.
           </p>
         ) : null}
@@ -122,4 +126,3 @@ export function NewsletterSection() {
     </section>
   );
 }
-

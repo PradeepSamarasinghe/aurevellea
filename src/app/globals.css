@@ -1,17 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --ivory: #f8f4ef;
-  --blush: #e7d5cf;
-  --rose: #a77f75;
-  --warm-brown: #76534d;
-  --dark-ink: #292421;
+  --cream: #fdf8f3;
+  --peach: #f8e5d6;
+  --deep-teal: #0f3342;
+  --copper: #a8693a;
+  --ink: #0f3342;
+  --ivory: var(--cream);
+  --blush: var(--peach);
+  --rose: var(--copper);
+  --warm-brown: var(--copper);
+  --dark-ink: var(--deep-teal);
   --white: #ffffff;
-  --ivory-soft: #fcfaf7;
-  --border-subtle: #e5ddd5;
+  --ivory-soft: #fffdfa;
+  --border-subtle: rgb(15 51 66 / 14%);
+  --milk: #fff6f3;
+  --rosewater: #fde8e3;
+  --petal: #f9cfc9;
+  --salmon: #f2b3b0;
+  --cocoa: #4b2218;
+  --mocha: #6d3a2c;
 }
 
 @theme inline {
+  --color-milk: var(--milk);
+  --color-rosewater: var(--rosewater);
+  --color-petal: var(--petal);
+  --color-salmon: var(--salmon);
+  --color-cocoa: var(--cocoa);
+  --color-mocha: var(--mocha);
+  --color-cream: var(--cream);
+  --color-peach: var(--peach);
+  --color-deep-teal: var(--deep-teal);
+  --color-copper: var(--copper);
+  --color-ink: var(--ink);
   --color-ivory: var(--ivory);
   --color-ivory-soft: var(--ivory-soft);
   --color-blush: var(--blush);
@@ -20,20 +42,20 @@
   --color-dark-ink: var(--dark-ink);
   --color-white: var(--white);
   --color-border-subtle: var(--border-subtle);
-  --font-serif: "Playfair Display Variable", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-marcellus), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jost), system-ui, -apple-system, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--ivory);
-  color: var(--dark-ink);
+  background-color: var(--cream);
+  color: var(--ink);
 }
 
 body {
-  background-color: var(--ivory);
-  color: var(--dark-ink);
-  font-family: var(--font-sans);
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-jost), system-ui, -apple-system, sans-serif;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -41,13 +63,13 @@ body {
 }
 
 ::selection {
-  background-color: var(--blush);
-  color: var(--dark-ink);
+  background-color: var(--peach);
+  color: var(--deep-teal);
 }
 
 /* Editorial Prose Typography for MDX Articles */
 .editorial-prose {
-  color: var(--dark-ink);
+  color: var(--ink);
   font-size: 1.0625rem;
   line-height: 1.85;
 }
@@ -61,7 +83,7 @@ body {
   font-size: 1.75rem;
   line-height: 1.25;
   font-weight: 500;
-  color: var(--dark-ink);
+  color: var(--deep-teal);
   margin-top: 2.75rem;
   margin-bottom: 0.85rem;
   letter-spacing: -0.015em;
@@ -79,14 +101,14 @@ body {
   font-size: 1.325rem;
   line-height: 1.35;
   font-weight: 500;
-  color: var(--warm-brown);
+  color: var(--copper);
   margin-top: 2rem;
   margin-bottom: 0.65rem;
   scroll-margin-top: 6rem;
 }
 
 .editorial-prose p {
-  color: rgba(41, 36, 33, 0.88);
+  color: rgb(15 51 66 / 82%);
 }
 
 .editorial-prose ul,
@@ -94,7 +116,7 @@ body {
   padding-left: 1.35rem;
   margin-top: 1rem;
   margin-bottom: 1.25rem;
-  color: rgba(41, 36, 33, 0.88);
+  color: rgb(15 51 66 / 82%);
 }
 
 .editorial-prose ul {
@@ -110,32 +132,31 @@ body {
 }
 
 .editorial-prose strong {
-  color: var(--dark-ink);
+  color: var(--deep-teal);
   font-weight: 600;
 }
 
 .editorial-prose a {
-  color: var(--warm-brown);
+  color: var(--copper);
   text-decoration: underline;
-  text-decoration-color: var(--rose);
+  text-decoration-color: var(--copper);
   text-underline-offset: 4px;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .editorial-prose a:hover {
-  color: var(--dark-ink);
-  text-decoration-color: var(--dark-ink);
+  color: var(--deep-teal);
+  text-decoration-color: var(--deep-teal);
 }
 
 .editorial-prose blockquote {
-  border-left: 2px solid var(--rose);
+  border-left: 2px solid var(--copper);
   padding-left: 1.35rem;
   margin: 2rem 0;
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.2rem;
   line-height: 1.65;
-  color: var(--warm-brown);
+  color: var(--copper);
 }
 
 .editorial-prose hr {
@@ -159,17 +180,82 @@ body {
   padding: 0.85rem 1rem;
   background-color: var(--ivory-soft);
   border-bottom: 1px solid var(--border-subtle);
-  color: var(--dark-ink);
+  color: var(--deep-teal);
 }
 
 .editorial-prose td {
   padding: 0.85rem 1rem;
   border-bottom: 1px solid var(--border-subtle);
-  color: rgba(41, 36, 33, 0.88);
+  color: rgb(15 51 66 / 82%);
 }
 
 /* Focus visibility */
 :focus-visible {
-  outline: 2px solid var(--warm-brown);
+  outline: 2px solid var(--copper);
   outline-offset: 3px;
+}
+
+.arrival-heading h2,
+.arrival-heading p,
+.arrival-heading a {
+  color: var(--cream);
+}
+
+.arrival-heading {
+  border-color: rgb(253 248 243 / 24%);
+}
+
+.arrival-grid > article {
+  border-color: rgb(253 248 243 / 22%);
+  background-color: transparent;
+}
+
+.arrival-grid > article > div {
+  background-color: transparent;
+}
+
+.arrival-grid > article h3,
+.arrival-grid > article h3 a,
+.arrival-grid > article > div > div:last-child a {
+  color: var(--cream);
+}
+
+.arrival-grid > article p {
+  color: rgb(253 248 243 / 76%);
+}
+
+.arrival-grid > article time,
+.arrival-grid > article > div > div:first-child > span {
+  color: rgb(253 248 243 / 62%);
+}
+
+.arrival-grid > article > div > div:last-child {
+  border-color: rgb(253 248 243 / 22%);
+  color: rgb(253 248 243 / 62%);
+}
+
+.staggered-grid > a:nth-child(even) {
+  margin-top: 2.5rem;
+}
+
+@keyframes aurevellea-slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slow-spin {
+  animation: aurevellea-slow-spin 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slow-spin {
+    animation: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .staggered-grid > a:nth-child(even) {
+    margin-top: 0;
+  }
 }
