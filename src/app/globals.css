@@ -1,26 +1,175 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ivory: #f8f4ef;
+  --blush: #e7d5cf;
+  --rose: #a77f75;
+  --warm-brown: #76534d;
+  --dark-ink: #292421;
+  --white: #ffffff;
+  --ivory-soft: #fcfaf7;
+  --border-subtle: #e5ddd5;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ivory: var(--ivory);
+  --color-ivory-soft: var(--ivory-soft);
+  --color-blush: var(--blush);
+  --color-rose: var(--rose);
+  --color-warm-brown: var(--warm-brown);
+  --color-dark-ink: var(--dark-ink);
+  --color-white: var(--white);
+  --color-border-subtle: var(--border-subtle);
+  --font-serif: "Playfair Display Variable", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: var(--ivory);
+  color: var(--dark-ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--ivory);
+  color: var(--dark-ink);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--blush);
+  color: var(--dark-ink);
+}
+
+/* Editorial Prose Typography for MDX Articles */
+.editorial-prose {
+  color: var(--dark-ink);
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+
+.editorial-prose > * + * {
+  margin-top: 1.35rem;
+}
+
+.editorial-prose h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--dark-ink);
+  margin-top: 2.75rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.015em;
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 768px) {
+  .editorial-prose h2 {
+    font-size: 2rem;
+  }
+}
+
+.editorial-prose h3 {
+  font-family: var(--font-serif);
+  font-size: 1.325rem;
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--warm-brown);
+  margin-top: 2rem;
+  margin-bottom: 0.65rem;
+  scroll-margin-top: 6rem;
+}
+
+.editorial-prose p {
+  color: rgba(41, 36, 33, 0.88);
+}
+
+.editorial-prose ul,
+.editorial-prose ol {
+  padding-left: 1.35rem;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  color: rgba(41, 36, 33, 0.88);
+}
+
+.editorial-prose ul {
+  list-style-type: disc;
+}
+
+.editorial-prose ol {
+  list-style-type: decimal;
+}
+
+.editorial-prose li + li {
+  margin-top: 0.5rem;
+}
+
+.editorial-prose strong {
+  color: var(--dark-ink);
+  font-weight: 600;
+}
+
+.editorial-prose a {
+  color: var(--warm-brown);
+  text-decoration: underline;
+  text-decoration-color: var(--rose);
+  text-underline-offset: 4px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.editorial-prose a:hover {
+  color: var(--dark-ink);
+  text-decoration-color: var(--dark-ink);
+}
+
+.editorial-prose blockquote {
+  border-left: 2px solid var(--rose);
+  padding-left: 1.35rem;
+  margin: 2rem 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--warm-brown);
+}
+
+.editorial-prose hr {
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2.5rem 0;
+}
+
+.editorial-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+  background-color: var(--white);
+  border: 1px solid var(--border-subtle);
+}
+
+.editorial-prose th {
+  text-align: left;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  background-color: var(--ivory-soft);
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--dark-ink);
+}
+
+.editorial-prose td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: rgba(41, 36, 33, 0.88);
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--warm-brown);
+  outline-offset: 3px;
 }

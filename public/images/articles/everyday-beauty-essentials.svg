@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" width="800" height="1200" role="img" aria-label="Editorial placeholder illustration for everyday beauty essentials">
+  <defs>
+    <linearGradient id="bgBeauty" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F4EF" />
+      <stop offset="55%" stop-color="#F3EAE2" />
+      <stop offset="100%" stop-color="#E7D5CF" />
+    </linearGradient>
+    <linearGradient id="amberBottle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C9A89B" />
+      <stop offset="100%" stop-color="#76534D" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1200" fill="url(#bgBeauty)" />
+  <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#A77F75" stroke-opacity="0.35" stroke-width="1.5" />
+  <ellipse cx="400" cy="840" rx="240" ry="48" fill="#E7D5CF" opacity="0.65" />
+  <!-- Minimalist Serum Bottle -->
+  <rect x="255" y="470" width="130" height="330" rx="18" fill="url(#amberBottle)" opacity="0.92" />
+  <rect x="292" y="425" width="56" height="45" fill="#76534D" />
+  <rect x="307" y="365" width="26" height="60" rx="12" fill="#292421" />
+  <rect x="282" y="555" width="76" height="150" rx="4" fill="#F8F4EF" opacity="0.92" />
+  <!-- Cream Jar -->
+  <ellipse cx="495" cy="790" rx="95" ry="22" fill="#D9C5BC" />
+  <rect x="400" y="695" width="190" height="95" rx="14" fill="#FFFFFF" stroke="#E5DDD5" stroke-width="2" />
+  <rect x="400" y="675" width="190" height="28" rx="8" fill="#E7D5CF" />
+  <!-- Lip Balm Tube -->
+  <rect x="475" y="520" width="44" height="125" rx="8" fill="#A77F75" />
+  <rect x="481" y="475" width="32" height="48" rx="6" fill="#E7D5CF" />
+  <!-- Editorial Caption -->
+  <text x="400" y="175" text-anchor="middle" font-family="Georgia, serif" font-size="22" letter-spacing="6" fill="#76534D">AUREVELLEA</text>
+  <text x="400" y="220" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="38" fill="#292421">Everyday Beauty Edit</text>
+  <line x1="330" y1="252" x2="470" y2="252" stroke="#A77F75" stroke-width="1.2" />
+  <text x="400" y="1030" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" letter-spacing="3" fill="#76534D">EDITORIAL PLACEHOLDER — REPLACE WITH PHOTOGRAPHY</text>
+</svg>
+
