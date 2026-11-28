@@ -23,7 +23,7 @@ export function CategoryArchiveClient({
     return (
       <div className="border border-border-subtle bg-white px-6 py-14 text-center">
         <p className="font-serif text-2xl text-dark-ink">Curating New Stories</p>
-        <p className="mx-auto mt-2 max-w-md text-sm text-dark-ink/70">
+        <p className="mx-auto mt-2 max-w-md text-sm text-dark-ink/75">
           {emptyMessage}
         </p>
       </div>

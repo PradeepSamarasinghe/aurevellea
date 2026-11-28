@@ -131,7 +131,7 @@ export function BlogArchiveClient({
               value={query}
               onChange={(e) => handleQueryChange(e.target.value)}
               placeholder="Filter by keyword or tag..."
-              className="w-full border border-border-subtle bg-white py-2 pl-9 pr-4 text-sm text-dark-ink placeholder:text-dark-ink/45 focus:border-warm-brown focus:outline-none sm:w-64"
+              className="w-full border border-border-subtle bg-white py-2 pl-9 pr-4 text-sm text-dark-ink placeholder:text-dark-ink/75 focus:border-warm-brown focus:outline-none sm:w-64"
             />
           </div>
 
@@ -166,7 +166,7 @@ export function BlogArchiveClient({
           <p className="font-serif text-2xl text-dark-ink">
             No matching articles found
           </p>
-          <p className="mx-auto mt-2 max-w-md text-sm text-dark-ink/70">
+          <p className="mx-auto mt-2 max-w-md text-sm text-dark-ink/75">
             Try clearing your filter or searching for broader terms such as
             &ldquo;neutral&rdquo;, &ldquo;nail&rdquo;, &ldquo;wardrobe&rdquo;,
             or &ldquo;gold&rdquo;.
@@ -191,7 +191,7 @@ export function BlogArchiveClient({
           aria-label="Article pagination"
           className="flex items-center justify-between border-t border-border-subtle pt-8"
         >
-          <p className="text-xs uppercase tracking-[0.16em] text-dark-ink/60">
+          <p className="text-xs uppercase tracking-[0.16em] text-dark-ink/75">
             Page {safePage} of {totalPages}
           </p>
           <div className="flex items-center gap-2">

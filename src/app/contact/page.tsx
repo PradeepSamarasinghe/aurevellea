@@ -60,7 +60,7 @@ export default function ContactPage() {
                 {siteConfig.contactEmail || "[Add verified contact email]"}
               </p>
             </div>
-            <div className="border-t border-border-subtle pt-4 text-xs leading-relaxed text-dark-ink/70">
+            <div className="border-t border-border-subtle pt-4 text-xs leading-relaxed text-dark-ink/75">
               <p>
                 No physical mailing address or telephone number is published
                 until verified by the site owner.

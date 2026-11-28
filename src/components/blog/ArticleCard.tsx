@@ -54,15 +54,15 @@ export function ArticleCard({
           <div className="flex items-center justify-between gap-2 text-[10px] uppercase tracking-[0.16em]">
             <Link
               href={category.href}
-              className="font-semibold text-copper hover:text-deep-teal"
+              className="font-semibold text-copper-ink hover:text-deep-teal"
             >
               {category.name}
             </Link>
-            <span className="text-deep-teal/55">{article.readingTime}</span>
+            <span className="text-deep-teal/75">{article.readingTime}</span>
           </div>
 
           <h3
-            className={`mt-2.5 font-serif font-normal leading-tight text-deep-teal group-hover:text-copper ${
+            className={`mt-2.5 font-serif font-normal leading-tight text-deep-teal group-hover:text-copper-ink ${
               variant === "editorial" ? "text-2xl sm:text-3xl" : "text-xl"
             }`}
           >
@@ -74,13 +74,13 @@ export function ArticleCard({
           </p>
         </div>
 
-        <div className="mt-5 flex items-center justify-between border-t border-deep-teal/10 pt-3.5 text-xs text-deep-teal/60">
+        <div className="mt-5 flex items-center justify-between border-t border-deep-teal/10 pt-3.5 text-xs text-deep-teal/75">
           <time dateTime={article.publishedAt}>
             {formatEditorialDate(article.publishedAt)}
           </time>
           <Link
             href={`/blog/${article.slug}`}
-            className="font-medium uppercase tracking-[0.14em] text-copper hover:text-deep-teal"
+            className="font-medium uppercase tracking-[0.14em] text-copper-ink hover:text-deep-teal"
           >
             Read
           </Link>

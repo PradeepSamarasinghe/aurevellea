@@ -63,7 +63,7 @@ function EditorialImage({
         />
       </div>
       {caption ? (
-        <figcaption className="mt-2.5 text-xs italic text-dark-ink/65">
+        <figcaption className="mt-2.5 text-xs italic text-dark-ink/75">
           {caption}
         </figcaption>
       ) : null}

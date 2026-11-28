@@ -71,7 +71,7 @@ export function ContactFormClient() {
                 .
               </p>
             ) : (
-              <p className="border-l-2 border-rose pl-4 text-xs text-dark-ink/70">
+              <p className="border-l-2 border-rose pl-4 text-xs text-dark-ink/75">
                 <strong>Site Owner Setup Note:</strong> Set{" "}
                 <code className="bg-ivory px-1.5 py-0.5">
                   NEXT_PUBLIC_CONTACT_EMAIL

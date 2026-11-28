@@ -50,7 +50,7 @@ export function Footer() {
                 ))}
               </div>
             ) : (
-              <p className="mt-5 text-xs text-ivory/55">
+              <p className="mt-5 text-xs text-ivory/75">
                 Social channels can be linked in site configuration when ready.
               </p>
             )}
@@ -150,7 +150,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-ivory/15 pt-8 text-xs text-ivory/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-ivory/15 pt-8 text-xs text-ivory/75 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {CURRENT_YEAR} {siteConfig.brandName}. All editorial
             rights reserved.

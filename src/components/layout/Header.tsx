@@ -173,7 +173,7 @@ export function Header() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search outfits, minimal nails, skincare, jewellery..."
                 autoFocus
-                className="w-full border border-border-subtle bg-white py-2.5 pl-10 pr-4 text-sm text-dark-ink placeholder:text-dark-ink/45 focus:border-warm-brown focus:outline-none"
+                className="w-full border border-border-subtle bg-white py-2.5 pl-10 pr-4 text-sm text-dark-ink placeholder:text-dark-ink/75 focus:border-warm-brown focus:outline-none"
               />
             </div>
             <button

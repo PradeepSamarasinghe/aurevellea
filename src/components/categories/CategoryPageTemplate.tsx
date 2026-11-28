@@ -71,7 +71,7 @@ export function CategoryPageTemplate({
               </div>
 
               {editorialNote ? (
-                <p className="mt-6 border-l-2 border-rose pl-4 text-xs leading-relaxed text-dark-ink/70">
+                <p className="mt-6 border-l-2 border-rose pl-4 text-xs leading-relaxed text-dark-ink/75">
                   {editorialNote}
                 </p>
               ) : null}
@@ -136,7 +136,7 @@ export function CategoryPageTemplate({
                   {featuredLead.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-border-subtle bg-ivory-soft px-3 py-1 text-[11px] text-dark-ink/70"
+                      className="border border-border-subtle bg-ivory-soft px-3 py-1 text-[11px] text-dark-ink/75"
                     >
                       {tag}
                     </span>

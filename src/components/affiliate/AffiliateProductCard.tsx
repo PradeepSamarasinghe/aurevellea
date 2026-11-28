@@ -32,7 +32,7 @@ export function AffiliateProductCard({
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-6 text-center">
             <Sparkles className="h-5 w-5 text-rose" aria-hidden="true" />
-            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-warm-brown/80">
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-warm-brown">
               Editorial Product Slot
             </span>
           </div>
@@ -61,7 +61,7 @@ export function AffiliateProductCard({
           {price ? (
             <span className="text-sm font-medium text-dark-ink">{price}</span>
           ) : (
-            <span className="text-xs text-dark-ink/55">
+            <span className="text-xs text-dark-ink/75">
               Editorial Selection
             </span>
           )}

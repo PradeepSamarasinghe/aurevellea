@@ -72,7 +72,7 @@ export default function SearchPage({
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Suspense
             fallback={
-              <div className="border border-border-subtle bg-white p-8 text-sm text-dark-ink/65">
+              <div className="border border-border-subtle bg-white p-8 text-sm text-dark-ink/75">
                 Loading search results...
               </div>
             }

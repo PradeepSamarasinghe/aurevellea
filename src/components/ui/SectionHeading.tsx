@@ -30,7 +30,7 @@ export function SectionHeading({
     >
       <div className={isCentered ? "max-w-2xl" : "max-w-2xl"}>
         {eyebrow ? (
-          <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-copper sm:text-[11px]">
+          <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-copper-ink sm:text-[11px]">
             {eyebrow}
           </p>
         ) : null}
@@ -46,7 +46,7 @@ export function SectionHeading({
       {actionLabel && actionHref ? (
         <Link
           href={actionHref}
-          className="inline-flex items-center gap-2 rounded-full border border-deep-teal/40 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.16em] text-deep-teal hover:border-copper hover:text-copper"
+          className="inline-flex items-center gap-2 rounded-full border border-deep-teal/40 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.16em] text-deep-teal hover:border-copper hover:text-copper-ink"
         >
           <span>{actionLabel}</span>
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

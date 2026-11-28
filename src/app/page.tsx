@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Bookmark } from "lucide-react";
+import { ArrowRight, Bookmark } from "lucide-react";
 import { ArticleCard } from "@/components/blog/ArticleCard";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { CATEGORIES } from "@/lib/categories";
@@ -55,7 +55,7 @@ function PinkHeading({
         </span>
       </h2>
       {description ? (
-        <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-cocoa/70 sm:text-base">
+        <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-cocoa/80 sm:text-base">
           {description}
         </p>
       ) : null}
@@ -77,6 +77,8 @@ function PinkHeading({
 
 const SOFT_CARDS =
   "[&_article]:overflow-hidden [&_article]:rounded-2xl [&_article]:border-white/70 [&_article]:shadow-[0_18px_40px_-28px_rgba(75,34,24,0.5)]";
+const COMPACT_ARTICLE_CARDS =
+  "[&_article>a]:aspect-[4/5] md:[&_article>a]:aspect-[2/3] [&_article>div]:p-2.5 sm:[&_article>div]:p-3 md:[&_article>div]:p-5 [&_article_p]:hidden sm:[&_article_p]:block [&_article_a]:focus-visible:outline-none [&_article_a]:focus-visible:ring-2 [&_article_a]:focus-visible:ring-cocoa [&_article_a]:focus-visible:ring-offset-2 [&_article_a]:focus-visible:ring-offset-milk";
 
 export default function HomePage() {
   const featuredPosts = getFeaturedPosts(3);
@@ -84,7 +86,6 @@ export default function HomePage() {
   const trendingPosts = getTrendingPosts(4);
   const pinterestShowcasePosts = getLatestPosts(4);
 
-  const spotlightPost = featuredPosts[0];
   const taglineParts = siteConfig.tagline.split(/(?<=\.)\s+/);
   const firstWords = (taglineParts[0] ?? "").split(" ");
   const accentWord = firstWords.pop() ?? "";
@@ -93,17 +94,14 @@ export default function HomePage() {
   return (
     <div className="bg-milk">
       {/* ───────────── 1. Hero ───────────── */}
-      <section className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#fde8e3_0%,#f9cfc9_52%,#f2b3b0_100%)]">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-24 -left-24 -z-10 h-96 w-96 rounded-full bg-white/50 blur-3xl"
-        />
-        <div className="relative z-20 mx-auto flex min-h-[420px] max-w-7xl flex-col justify-center px-4 py-14 sm:px-6 lg:min-h-[700px] lg:px-8 lg:py-0">
-          <div className="max-w-xl lg:w-1/2">
-            <h1 className="font-sans text-5xl font-semibold leading-[1.08] tracking-tight text-cocoa sm:text-6xl lg:text-[4rem]">
+      <section className="hero-section relative isolate min-h-[560px] overflow-hidden">
+        <div className="hero-glow pointer-events-none absolute inset-y-0 left-0 z-0 w-[44%]" />
+        <div className="hero-content relative z-20 mx-auto flex min-h-[560px] max-w-7xl flex-col justify-center px-4 py-10 sm:px-6 lg:min-h-[680px] lg:px-8 lg:py-12">
+          <div className="relative z-10 max-w-3xl lg:w-[58%]">
+            <h1 className="hero-heading hero-enter text-[clamp(2.5rem,5vw,4.25rem)] font-semibold leading-[1.08] tracking-tight text-cocoa">
               <span className="block">
                 {leadWords}{" "}
-                <span className="font-serif font-medium italic text-mocha">
+                <span className="hero-accent font-serif font-medium italic text-cocoa">
                   {accentWord}
                 </span>
               </span>
@@ -111,17 +109,23 @@ export default function HomePage() {
                 <span className="block">{taglineParts[1]}</span>
               ) : null}
             </h1>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link href="/blog" className={BTN_PRIMARY}>
+            <div className="hero-enter hero-enter-delay-1 mt-8 flex flex-col gap-3 min-[400px]:flex-row min-[400px]:flex-wrap min-[400px]:items-center">
+              <Link
+                href="/blog"
+                className={`${BTN_PRIMARY} min-h-12 w-full justify-center focus-visible:ring-2 focus-visible:ring-cocoa focus-visible:ring-offset-2 focus-visible:ring-offset-rosewater min-[400px]:w-auto`}
+              >
                 Explore the Journal
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link href="/nail-art" className={BTN_OUTLINE}>
+              <Link
+                href="/nail-art"
+                className={`${BTN_OUTLINE} min-h-12 w-full justify-center focus-visible:ring-2 focus-visible:ring-cocoa focus-visible:ring-offset-2 focus-visible:ring-offset-rosewater min-[400px]:w-auto`}
+              >
                 Nail Art Archive
               </Link>
             </div>
           </div>
-          <div className="mt-12 flex items-center gap-3 lg:absolute lg:bottom-12 lg:left-8 lg:mt-0">
+          <div className="relative z-10 mt-8 flex items-center gap-3 lg:absolute lg:bottom-10 lg:left-8 lg:mt-0">
             <div className="flex -space-x-2 rounded-full bg-white/60 p-1 backdrop-blur-sm">
               {CATEGORIES.slice(0, 3).map((category) => (
                 <span
@@ -138,7 +142,7 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
-            <p className="text-xs leading-5 text-cocoa/80">
+            <p className="text-xs leading-5 text-cocoa">
               <span className="font-medium text-cocoa">
                 Independent editorial
               </span>
@@ -148,49 +152,18 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative z-10 h-[460px] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[58%]">
-          <Image
-            src="/images/hero-editorial.png"
-            alt="Woman in an ivory linen coat, cream silk blouse, and structured tan leather handbag in warm sunlight"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 58vw"
-            className="object-cover object-[88%_20%]"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent 0%, black 28%, black 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent 0%, black 28%, black 100%)",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-salmon/25 mix-blend-soft-light"
-          />
-          {spotlightPost ? (
-            <Link
-              href={`/blog/${spotlightPost.slug}`}
-              className="absolute right-4 top-6 z-20 w-44 rounded-2xl border border-white/60 bg-white/35 p-3 shadow-[0_14px_40px_-16px_rgba(120,50,40,0.55)] backdrop-blur-md transition-transform hover:-translate-y-0.5 sm:right-8 lg:right-[7%] lg:top-10"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <p className="line-clamp-2 text-[11px] font-medium leading-snug text-cocoa">
-                  {spotlightPost.title}
-                </p>
-                <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cocoa text-white">
-                  <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
-                </span>
-              </div>
-              <div className="relative mt-3 aspect-[4/3] overflow-hidden rounded-xl bg-white/50">
-                <Image
-                  src={spotlightPost.featuredImage}
-                  alt={spotlightPost.imageAlt}
-                  fill
-                  sizes="176px"
-                  className="object-cover"
-                />
-              </div>
-            </Link>
-          ) : null}
+        <div className="hero-image-frame relative z-10 h-[420px] w-full sm:h-[440px] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[58%]">
+          <div className="hero-photo-mask absolute inset-0">
+            <Image
+              src="/images/hero-editorial.png"
+              alt="Woman applying face serum with a glass dropper against a soft pink studio backdrop"
+              fill
+              priority
+              quality={100}
+              sizes="(max-width: 560px) 560px, (max-width: 1023px) 100vw, 910px"
+              className="object-cover object-[84%_0%] lg:object-[84%_24%]"
+            />
+          </div>
         </div>
       </section>
 
@@ -206,7 +179,7 @@ export default function HomePage() {
               <p className="font-sans text-base font-semibold text-cocoa sm:text-lg">
                 {title}
               </p>
-              <p className="mt-0.5 text-[11px] leading-snug text-cocoa/65 sm:text-xs">
+              <p className="mt-0.5 text-[11px] leading-snug text-cocoa/80 sm:text-xs">
                 {text}
               </p>
             </div>
@@ -215,7 +188,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────── 3. Categories ───────────── */}
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PinkHeading
             eyebrow="Editorial Pillars"
@@ -225,45 +198,55 @@ export default function HomePage() {
             actionLabel="View All Stories"
             actionHref="/blog"
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {CATEGORIES.map((category) => (
-              <Link
-                key={category.slug}
-                href={category.href}
-                className="group flex flex-col lg:even:mt-8"
-              >
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-petal/40 shadow-[0_18px_40px_-28px_rgba(75,34,24,0.5)]">
-                  <Image
-                    src={category.image}
-                    alt={category.imageAlt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="px-1 pt-4">
-                  <p className="text-[11px] font-medium text-mocha/80">
-                    {category.eyebrow}
-                  </p>
-                  <h3 className="mt-0.5 font-sans text-lg font-semibold text-cocoa transition-colors group-hover:text-mocha">
-                    {category.name}
-                  </h3>
-                  <span className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-cocoa">
-                    Explore
-                    <ArrowRight
-                      className="h-3 w-3 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
+          <div className="relative mt-8 sm:mt-12">
+            <div
+              role="list"
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 -mx-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:overscroll-auto md:mx-0 md:px-0 md:pb-0 md:snap-none lg:grid-cols-5"
+            >
+              {CATEGORIES.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={category.href}
+                  role="listitem"
+                  className="group flex w-[62%] min-w-[220px] max-w-[280px] shrink-0 snap-start flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa focus-visible:ring-offset-2 focus-visible:ring-offset-milk md:w-auto md:min-w-0 md:max-w-none md:shrink md:snap-align-none lg:even:mt-8"
+                >
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-petal/40 shadow-[0_18px_40px_-28px_rgba(75,34,24,0.5)] md:aspect-[3/4]">
+                    <Image
+                      src={category.image}
+                      alt={category.imageAlt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     />
-                  </span>
-                </div>
-              </Link>
-            ))}
+                  </div>
+                  <div className="px-1 pt-4">
+                    <p className="text-[11px] font-medium text-mocha">
+                      {category.eyebrow}
+                    </p>
+                    <h3 className="mt-0.5 font-sans text-lg font-semibold text-cocoa transition-colors group-hover:text-mocha">
+                      {category.name}
+                    </h3>
+                    <span className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-cocoa">
+                      Explore
+                      <ArrowRight
+                        className="h-3 w-3 transition-transform group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 -right-4 z-10 w-10 bg-gradient-to-l from-milk to-transparent md:hidden"
+            />
           </div>
         </div>
       </section>
 
       {/* ───────────── 4. Featured stories ───────────── */}
-      <section className="bg-gradient-to-b from-rosewater/70 to-milk py-20 sm:py-24">
+      <section className="bg-gradient-to-b from-rosewater/70 to-milk py-12 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PinkHeading
             eyebrow="Editor's Selection"
@@ -274,21 +257,24 @@ export default function HomePage() {
             actionHref="/blog"
           />
           <div
-            className={`mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 ${SOFT_CARDS}`}
+            role="list"
+            className={`-mx-4 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-12 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:overscroll-auto md:px-0 md:pb-0 md:snap-none ${SOFT_CARDS} ${COMPACT_ARTICLE_CARDS} [&_article_h3]:line-clamp-2 [&_article_h3]:text-sm md:[&_article_h3]:line-clamp-none md:[&_article_h3]:text-3xl`}
           >
             {featuredPosts.map((article) => (
-              <ArticleCard
+              <div
                 key={article.slug}
-                article={article}
-                variant="editorial"
-              />
+                role="listitem"
+                className="w-[82%] min-w-[220px] shrink-0 snap-start md:contents"
+              >
+                <ArticleCard article={article} variant="editorial" />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* ───────────── 5. Point of view ───────────── */}
-      <section className="py-20 sm:py-28">
+      <section className="py-12 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-10 overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#fde8e3_0%,#f9cfc9_60%,#f2b3b0_100%)] p-6 sm:p-10 lg:grid-cols-12 lg:gap-14 lg:p-14">
             <div className="lg:col-span-5">
@@ -320,7 +306,7 @@ export default function HomePage() {
               neutral manicures, uncomplicated beauty routines, and
               intentional daily details.
               </p>
-              <p className="mt-4 max-w-xl text-sm leading-7 text-cocoa/70">
+              <p className="mt-4 max-w-xl text-sm leading-7 text-cocoa/80">
               Every guide is written to be practical, clear, and genuinely
               useful—without exaggerated claims, cluttered layouts, or
               overwhelming trend cycles.
@@ -340,7 +326,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────── 6. Trending ───────────── */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PinkHeading
             eyebrow="Saved & Revisited"
@@ -351,7 +337,7 @@ export default function HomePage() {
             actionHref="/nail-art"
           />
           <div
-            className={`mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 ${SOFT_CARDS}`}
+            className={`mt-8 grid grid-cols-2 gap-3 max-[375px]:-mx-2 max-[375px]:gap-2 sm:mt-12 md:grid-cols-2 md:gap-6 lg:grid-cols-4 ${SOFT_CARDS} ${COMPACT_ARTICLE_CARDS} [&_article_h3]:line-clamp-2 [&_article_h3]:text-sm md:[&_article_h3]:line-clamp-none md:[&_article_h3]:text-xl`}
           >
             {trendingPosts.map((article) => (
               <ArticleCard key={article.slug} article={article} />
@@ -361,7 +347,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────── 7. Latest articles ───────────── */}
-      <section className="bg-gradient-to-b from-milk via-rosewater/60 to-milk py-20 sm:py-24">
+      <section className="bg-gradient-to-b from-milk via-rosewater/60 to-milk py-12 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PinkHeading
             eyebrow="Recent Dispatches"
@@ -372,17 +358,30 @@ export default function HomePage() {
             actionHref="/blog"
           />
           <div
-            className={`mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${SOFT_CARDS}`}
+            className={`mt-8 grid grid-cols-2 gap-3 max-[375px]:-mx-2 max-[375px]:gap-2 sm:mt-12 md:grid-cols-2 md:gap-8 lg:grid-cols-3 ${SOFT_CARDS} ${COMPACT_ARTICLE_CARDS} [&_article_h3]:line-clamp-2 [&_article_h3]:text-sm md:[&_article_h3]:line-clamp-none md:[&_article_h3]:text-xl`}
           >
-            {latestPosts.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
+            {latestPosts.map((article, index) =>
+              index >= 4 ? (
+                <div key={article.slug} className="hidden md:contents">
+                  <ArticleCard article={article} />
+                </div>
+              ) : (
+                <ArticleCard key={article.slug} article={article} />
+              )
+            )}
           </div>
+          <Link
+            href="/blog"
+            className="mt-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-cocoa px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-mocha focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa focus-visible:ring-offset-2 focus-visible:ring-offset-milk md:hidden"
+          >
+            All Articles
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
       {/* ───────────── 8. Pinterest moodboard ───────────── */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PinkHeading
             eyebrow="Save for Later"
@@ -409,7 +408,7 @@ export default function HomePage() {
             )}
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 max-[375px]:-mx-2 max-[375px]:gap-2 sm:mt-10 sm:gap-6 lg:grid-cols-4">
             {pinterestShowcasePosts.slice(0, 3).map((post) => {
               const articleUrl = absoluteUrl(`/blog/${post.slug}`);
               const mediaUrl = post.featuredImage.startsWith("http")
@@ -438,7 +437,7 @@ export default function HomePage() {
                   <div className="mt-3 flex items-center justify-between gap-2 px-1">
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="line-clamp-1 text-sm font-medium text-cocoa hover:text-mocha"
+                      className="min-w-0 flex-1 truncate text-sm font-medium text-cocoa hover:text-mocha"
                     >
                       {post.title}
                     </Link>
@@ -447,7 +446,7 @@ export default function HomePage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Pin ${post.title} to Pinterest`}
-                      className="shrink-0 rounded-full border border-cocoa/20 bg-white/70 px-3 py-1 text-[11px] font-medium text-mocha transition-colors hover:bg-cocoa hover:text-white"
+                      className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-cocoa/20 bg-white/70 px-3 py-1 text-[11px] font-medium text-mocha transition-colors hover:bg-cocoa hover:text-white md:min-h-0 md:min-w-0"
                     >
                       Pin
                     </a>
@@ -460,7 +459,7 @@ export default function HomePage() {
                 href={siteConfig.socialLinks.pinterest}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex aspect-square flex-col items-center justify-center gap-4 rounded-2xl bg-copper p-6 text-center text-cream hover:bg-deep-teal"
+                className="flex aspect-square flex-col items-center justify-center gap-4 rounded-2xl bg-copper-ink p-6 text-center text-cream hover:bg-deep-teal"
               >
                 <Bookmark className="h-7 w-7" aria-hidden="true" />
                 <span className="font-serif text-lg leading-snug">
@@ -473,7 +472,7 @@ export default function HomePage() {
             ) : (
               <Link
                 href="/nail-art"
-                className="flex aspect-square flex-col items-center justify-center gap-4 rounded-2xl bg-copper p-6 text-center text-cream hover:bg-deep-teal"
+                className="flex aspect-square flex-col items-center justify-center gap-4 rounded-2xl bg-copper-ink p-6 text-center text-cream hover:bg-deep-teal"
               >
                 <Bookmark className="h-7 w-7" aria-hidden="true" />
                 <span className="font-serif text-lg leading-snug">

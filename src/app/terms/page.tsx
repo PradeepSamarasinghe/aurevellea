@@ -35,7 +35,7 @@ export default function TermsPage() {
           <h1 className="mt-3 font-serif text-4xl font-normal text-dark-ink sm:text-5xl">
             Terms &amp; Conditions
           </h1>
-          <p className="mt-3 text-xs uppercase tracking-[0.16em] text-dark-ink/60">
+          <p className="mt-3 text-xs uppercase tracking-[0.16em] text-dark-ink/75">
             Starter Template — Review and update before public launch
           </p>
         </div>

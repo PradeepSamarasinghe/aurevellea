@@ -40,7 +40,7 @@ export function ShareButtons({
 
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-dark-ink/65">
+      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-dark-ink/75">
         <Share2 className="h-3.5 w-3.5 text-rose" aria-hidden="true" />
         Share
       </span>

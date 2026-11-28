@@ -109,7 +109,7 @@ export default async function ArticlePage({
             </p>
 
             {/* Author & Dates Metadata */}
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border-subtle pt-5 text-xs text-dark-ink/70">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border-subtle pt-5 text-xs text-dark-ink/75">
               <span className="inline-flex items-center gap-1.5">
                 <User className="h-3.5 w-3.5 text-rose" aria-hidden="true" />
                 <span>By {article.author}</span>
@@ -127,7 +127,7 @@ export default async function ArticlePage({
                 </span>
               </span>
               {article.updatedAt ? (
-                <span className="text-dark-ink/60">
+                <span className="text-dark-ink/75">
                   Updated{" "}
                   <time dateTime={article.updatedAt}>
                     {formatEditorialDate(article.updatedAt)}
@@ -166,7 +166,7 @@ export default async function ArticlePage({
                   className="object-cover"
                 />
               </div>
-              <figcaption className="mt-2.5 text-xs text-dark-ink/60">
+              <figcaption className="mt-2.5 text-xs text-dark-ink/75">
                 {article.imageAlt}
               </figcaption>
             </figure>
@@ -218,7 +218,7 @@ export default async function ArticlePage({
                         />
                       </div>
                       {item.caption ? (
-                        <figcaption className="mt-2 px-1 text-xs text-dark-ink/70">
+                        <figcaption className="mt-2 px-1 text-xs text-dark-ink/75">
                           {item.caption}
                         </figcaption>
                       ) : null}
@@ -231,7 +231,7 @@ export default async function ArticlePage({
             {/* Tags */}
             {article.tags.length > 0 ? (
               <div className="mt-10 border-t border-border-subtle pt-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-dark-ink/55">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-dark-ink/75">
                   Topics in This Story
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">

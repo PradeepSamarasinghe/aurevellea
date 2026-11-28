@@ -50,7 +50,7 @@ export function NewsletterSection() {
           </span>{" "}
           Dispatches
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-cocoa/75 sm:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-cocoa/80 sm:text-base">
           Curated outfit inspiration, minimal manicure edits, and thoughtful
           beauty guides—sent at a calm, unhurried pace.
         </p>
@@ -70,7 +70,7 @@ export function NewsletterSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="flex-1 rounded-lg border border-white/70 bg-white/70 px-4 py-3 text-sm text-cocoa backdrop-blur-sm placeholder:text-cocoa/45 focus:border-cocoa focus:outline-none"
+              className="flex-1 rounded-lg border border-white/70 bg-white/70 px-4 py-3 text-sm text-cocoa backdrop-blur-sm placeholder:text-cocoa/80 focus:border-cocoa focus:outline-none"
             />
             <button
               type="submit"
@@ -91,7 +91,7 @@ export function NewsletterSection() {
                 <p className="font-medium text-cocoa">
                   Newsletter signups are not yet connected to an email provider.
                 </p>
-                <p className="mt-1 text-xs text-cocoa/70">
+                <p className="mt-1 text-xs text-cocoa/80">
                   To keep reader trust intact, no form submissions are collected
                   until an email service (such as Buttondown, Kit, or Resend) is
                   configured via{" "}

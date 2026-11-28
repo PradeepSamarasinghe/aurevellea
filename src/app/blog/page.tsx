@@ -85,7 +85,7 @@ export default function BlogPage() {
                 <p className="mt-4 text-base leading-relaxed text-dark-ink/78">
                   {leadFeatured.excerpt}
                 </p>
-                <div className="mt-5 flex flex-wrap items-center gap-4 text-xs text-dark-ink/60">
+                <div className="mt-5 flex flex-wrap items-center gap-4 text-xs text-dark-ink/75">
                   <span>{leadFeatured.author}</span>
                   <span>·</span>
                   <time dateTime={leadFeatured.publishedAt}>

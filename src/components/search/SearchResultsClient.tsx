@@ -67,7 +67,7 @@ export function SearchResultsClient({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search outfit ideas, minimal nails, skincare, jewellery..."
-              className="w-full border border-border-subtle bg-ivory-soft py-3 pl-10 pr-4 text-sm text-dark-ink placeholder:text-dark-ink/45 focus:border-warm-brown focus:bg-white focus:outline-none"
+              className="w-full border border-border-subtle bg-ivory-soft py-3 pl-10 pr-4 text-sm text-dark-ink placeholder:text-dark-ink/75 focus:border-warm-brown focus:bg-white focus:outline-none"
             />
           </div>
 
@@ -105,7 +105,7 @@ export function SearchResultsClient({
         {/* Quick Topic Suggestions */}
         {suggestedTags.length > 0 ? (
           <div className="mt-4 flex flex-wrap items-center gap-2 pt-2">
-            <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-dark-ink/55">
+            <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-dark-ink/75">
               Popular Topics:
             </span>
             {suggestedTags.slice(0, 8).map((tag) => (
@@ -172,7 +172,7 @@ export function SearchResultsClient({
           <h2 className="mt-2 font-serif text-3xl font-normal text-dark-ink">
             We couldn&apos;t find an article for &ldquo;{initialQuery}&rdquo;
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-dark-ink/75">
+          <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-dark-ink/80">
             Try searching with simpler keywords like{" "}
             <button
               type="button"

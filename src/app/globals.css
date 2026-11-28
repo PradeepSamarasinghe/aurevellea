@@ -5,11 +5,12 @@
   --peach: #f8e5d6;
   --deep-teal: #0f3342;
   --copper: #a8693a;
+  --copper-ink: #70401f;
   --ink: #0f3342;
   --ivory: var(--cream);
   --blush: var(--peach);
-  --rose: var(--copper);
-  --warm-brown: var(--copper);
+  --rose: var(--copper-ink);
+  --warm-brown: var(--copper-ink);
   --dark-ink: var(--deep-teal);
   --white: #ffffff;
   --ivory-soft: #fffdfa;
@@ -33,6 +34,7 @@
   --color-peach: var(--peach);
   --color-deep-teal: var(--deep-teal);
   --color-copper: var(--copper);
+  --color-copper-ink: var(--copper-ink);
   --color-ink: var(--ink);
   --color-ivory: var(--ivory);
   --color-ivory-soft: var(--ivory-soft);
@@ -43,7 +45,33 @@
   --color-white: var(--white);
   --color-border-subtle: var(--border-subtle);
   --font-serif: var(--font-marcellus), "Cormorant Garamond", Georgia, serif;
-  --font-sans: var(--font-jost), system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-files/inter-latin-wght-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display-files/playfair-display-latin-wght-italic.woff2")
+    format("woff2");
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display-files/playfair-display-latin-wght-normal.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
 }
 
 html {
@@ -101,7 +129,7 @@ body {
   font-size: 1.325rem;
   line-height: 1.35;
   font-weight: 500;
-  color: var(--copper);
+  color: var(--copper-ink);
   margin-top: 2rem;
   margin-bottom: 0.65rem;
   scroll-margin-top: 6rem;
@@ -137,9 +165,9 @@ body {
 }
 
 .editorial-prose a {
-  color: var(--copper);
+  color: var(--copper-ink);
   text-decoration: underline;
-  text-decoration-color: var(--copper);
+  text-decoration-color: var(--copper-ink);
   text-underline-offset: 4px;
 }
 
@@ -156,7 +184,7 @@ body {
   font-style: italic;
   font-size: 1.2rem;
   line-height: 1.65;
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 
 .editorial-prose hr {
@@ -238,6 +266,55 @@ body {
   margin-top: 2.5rem;
 }
 
+.hero-section {
+  background-image: linear-gradient(
+    to bottom,
+    #e68a9e 0%,
+    #ef93a6 50%,
+    #ea899f 100%
+  );
+}
+
+.hero-glow {
+  background: radial-gradient(
+    ellipse at 32% 50%,
+    color-mix(in srgb, var(--milk) 42%, transparent) 0%,
+    transparent 72%
+  );
+}
+
+.hero-photo-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+}
+
+.hero-heading {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.hero-accent {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.hero-enter {
+  animation: hero-fade-rise 520ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.hero-enter-delay-1 {
+  animation-delay: 80ms;
+}
+
+@keyframes hero-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes aurevellea-slow-spin {
   to {
     transform: rotate(360deg);
@@ -249,8 +326,18 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .slow-spin {
+  .slow-spin,
+  .hero-enter {
     animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-photo-mask {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
   }
 }
 
